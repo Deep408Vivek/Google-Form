@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .red-border {
+  border: 2px solid red;
+}
+
+  </style>
+</head>
+<body>
+  <form id="myForm">
+    <input type="text" name="username" placeholder="Username">
+    <input type="email" name="email" placeholder="Email">
+    <!-- Other input fields go here -->
+    <button type="button" onclick="validateForm()">Submit</button>
+  </form>
+  <script>
+    function validateForm() {
+  var form = document.getElementById("myForm");
+  var inputs = form.querySelectorAll("input");
+
+  // Remove red border class from all inputs
+  inputs.forEach(function(input) {
+    input.classList.remove("red-border");
+  });
+
+  var isFormValid = true;
+
+  // Check each input for content
+  inputs.forEach(function(input) {
+    if (input.value.trim() === "") {
+      input.classList.add("red-border");
+      isFormValid = false;
+    }
+  });
+
+  if (isFormValid) {
+    // Form is valid, submit it or perform other actions
+    // For example: form.submit();
+    alert("Form submitted successfully!");
+  } else {
+    // Form is not valid, display an error message or handle as needed
+    alert("Please fill out all required fields.");
+  }
+}
+
+  </script>
+</body>
+</html>
